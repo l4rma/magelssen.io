@@ -28,9 +28,9 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: change directory
-      run: cd backend
     - name: permission
       run: chmod +x gradlew
+      working-directory: ./backend
     - name: Build with Gradle
       run: ./gradlew build
+      working-directory: ./backend
