@@ -64,5 +64,7 @@ jobs:
         port: 22
         script: |
           echo "Hello, world!"
-          whoami
-          docker ps
+          docker stop *
+          docker-compose rm -f
+          docker-compose build --pull --no-cache
+          docker-compose up -d
