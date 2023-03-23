@@ -48,7 +48,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: l4rma/micronaut
-        tags: $(git rev-parse --short HEAD), latests
+        tags: $(git rev-parse --short HEAD), latest
         dockerfile: ./backend/Dockerfile
         directory: backend/
         registry: docker.io
