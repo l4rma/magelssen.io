@@ -48,7 +48,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: l4rma/micronaut
-        tags: v1, latest
+        addLatests: true
         dockerfile: ./backend/Dockerfile
         directory: backend/
         registry: docker.io
