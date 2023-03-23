@@ -118,10 +118,7 @@ export default function thisWebsite() {
           <li><input type="checkbox" /> Implement the task manager in a kanban board gui.</li>
           <br />
           Website editing:
-          <li><input type="checkbox" /> Put the frontend and backend together in one project with version control.</li>
-          <li><input type="checkbox" /> Create github action script to build frontend and dockerise the full stack.</li>
           <li><input type="checkbox" /> Run a spell checker</li>
-          <li><input type="checkbox" /> Add deployment to the github action script.</li>
           <li><input type="checkbox" /> Add "pass all tests" deployment condition</li>
 
         <h3 className="article-sub-header">Done:</h3>
@@ -132,6 +129,9 @@ export default function thisWebsite() {
           <li><input type="checkbox" checked /> Structure backend layers: Repo, Server, Controller.</li>
           <li><input type="checkbox" checked /> Implement full CRUD to db</li>
           <li><input type="checkbox" checked /> Dockerising with docker-compose</li>
+          <li><input type="checkbox" checked /> Put the frontend and backend together in one project with version control.</li>
+          <li><input type="checkbox" checked /> Create github action script to build frontend and dockerise the full stack.</li>
+          <li><input type="checkbox" checked /> Add deployment to the github action script.</li>
         </ul>
       </div>
     </>
