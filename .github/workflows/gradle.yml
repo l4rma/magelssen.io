@@ -50,7 +50,7 @@ jobs:
         image: l4rma/micronaut
         dockerfile: ./backend/Dockerfile
         directory: backend/
-        tags: refs,latest
+        tags: /refs/heads/dev
         addLatest: true
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
