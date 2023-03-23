@@ -1,0 +1,60 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.7.4"
+}
+
+version = "0.1"
+group = "io.magelssen"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api:2.2"
+    implementation 'javax.inject:javax.inject:1'
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    implementation("io.micronaut:micronaut-validation")
+    implementation "io.micronaut.sql:micronaut-jdbc-tomcat"
+    implementation("io.micronaut.data:micronaut-data-jdbc")
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation("io.micronaut.data:micronaut-data-processor")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly "com.h2database:h2"
+    runtimeOnly 'org.postgresql:postgresql:42.3.8'
+}
+
+
+application {
+    mainClass.set("io.magelssen.Application")
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+graalvmNative.toolchainDetection = false
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("io.magelssen.*")
+    }
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'io.magelssen.Application'
+        )
+    }
+}
+
+
+

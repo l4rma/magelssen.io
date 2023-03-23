@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: backend
+datasources:
+  default:
+    url: jdbc:postgresql://db/task-db
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driverClassName: org.postgresql.Driver
+jpa:
+  default:
+    entity-scan:
+      packages: io.magelssen.entities
+    properties:
+      hibernate:
+        show_sql: true
+        hbm2ddl:
+          auto: none
+flyway:
+  datasources:
+    default:
+      enabled: true
+netty:
+  default:
+    allocator:
+      max-order: 3
