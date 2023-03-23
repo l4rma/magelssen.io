@@ -49,6 +49,7 @@ jobs:
       with:
         image: l4rma/micronaut
         dockerfile: ./backend/Dockerfile
+        directory: backend/
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
