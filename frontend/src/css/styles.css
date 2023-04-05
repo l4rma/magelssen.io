@@ -88,6 +88,7 @@ pre code {
   border: 1px solid #999;
   display: block;
   padding: 10px;
+  white-space: pre-wrap;
 }
 
 @media only screen and (min-width: 768px) {
