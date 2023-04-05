@@ -21,6 +21,11 @@ public class TaskController {
         return taskService.findAll();
     }
 
+    @Get("/completed")
+    public Iterable<Task> findCompleted() {
+        return taskService.findCompleted();
+    }
+
     @Get("/{id}")
     public Optional<Task> findById(Long id) {
         return taskService.findById(id);

@@ -41,4 +41,8 @@ public class TaskService {
             throw new RuntimeException("Task not found with ID: " + id);
         }
     }
+
+    public Iterable<Task> findCompleted() {
+        return taskRepository.findCompleted();
+    }
 }

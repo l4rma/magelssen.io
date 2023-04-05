@@ -10,11 +10,11 @@ export default function thisWebsite() {
           stuff. I also wanted to start writing articles or blog posts.
           If for nothing else just to learn stuff better by pretending to 
           explain it to someone else. And to be honest, I wanted to improve my 
-          english as well. This website as well as this article is a work 
+          English as well. This website as well as this article is a work 
           still in progress..
         </p>
 
-        <h3 className="article-sub-header">Choosing languanges and frameworks</h3>
+        <h3 className="article-sub-header">Choosing languages and frameworks</h3>
         <p>
           I originally started to build the backend with Rust as a
           way to practice and learn Rust. I created an example page
@@ -31,12 +31,12 @@ export default function thisWebsite() {
         <p>
           For the frontend I considered alot of options. At first the plan
           was web assembly, but when I scratched the full stack rust project
-          I thought i'd go for something basic, like just static html, and 
+          I thought I'd go for something basic, like just static html, and 
           keep all the coding on the backend (SSR). I considered JSF 
           (Java Server Faces) just for fun, and I also had a quick look at 
           Thymeleaf. I ended up choosing React, since it was something I 
           had some experience with, but wanted to learn more since it's so 
-          commen to come across. I also havn't seen any tutorials with 
+          common to come across. I also haven't seen any tutorials with 
           web sites serving React from a java backend so I wanted to try 
           it out.
         </p>
@@ -85,7 +85,7 @@ export default function thisWebsite() {
           fix some other stuff, and soon I was looking at a small todo list.
           Since this whole project is more about the journey than the 
           destination, the new plan was to create a task manager. In stead of
-          just writing down a todo list, i'll use the rest api to create tasks,
+          just writing down a todo list, I'll use the rest api to create tasks,
           store them in the database, and fetch them and render the result 
           in the frontend.
         </p>
@@ -106,6 +106,19 @@ export default function thisWebsite() {
           github action script. Then I can set it to trigger whenever I push
           to main.
         </p>
+        <h3 className="article-sub-header">Responsive</h3>
+        <p>
+          Since everything looked horrible on a mobile phone, I made the site
+          responsive. Havn't done that before, but was happy to find out all I
+          needed was to one line of code and then do some small styling 
+          changes.
+          <pre>Html<code>
+            &lt;meta name="viewport" content="width=device-width, initial-sacale=1.0"&gt; <br />
+          </code></pre>
+          <pre>CSS<code>
+            @media only screen and (min-width: 768px) &#123; &#125;
+          </code></pre>
+        </p>
 <hr />
         <ul className="todo-list"> 
         <h3 className="article-sub-header">Todo list:</h3>
@@ -122,16 +135,17 @@ export default function thisWebsite() {
           <li><input type="checkbox" /> Add "pass all tests" deployment condition</li>
 
         <h3 className="article-sub-header">Done:</h3>
-          <li><input type="checkbox" checked /> Create a sample restapi endpoint</li>
-          <li><input type="checkbox" checked /> Add a website dev log</li>
-          <li><input type="checkbox" checked /> Choose database</li>
-          <li><input type="checkbox" checked /> Set up database migration with flyway</li>
-          <li><input type="checkbox" checked /> Structure backend layers: Repo, Server, Controller.</li>
-          <li><input type="checkbox" checked /> Implement full CRUD to db</li>
+          <li><input type="checkbox" checked /> Make website responsive </li>
+          <li><input type="checkbox" checked /> Add deployment to the github action script.</li>
+          <li><input type="checkbox" checked /> Create github action script to build frontend and dockerise the full stack.</li>
           <li><input type="checkbox" checked /> Dockerising with docker-compose</li>
           <li><input type="checkbox" checked /> Put the frontend and backend together in one project with version control.</li>
-          <li><input type="checkbox" checked /> Create github action script to build frontend and dockerise the full stack.</li>
-          <li><input type="checkbox" checked /> Add deployment to the github action script.</li>
+          <li><input type="checkbox" checked /> Implement full CRUD to db</li>
+          <li><input type="checkbox" checked /> Structure backend layers: Repo, Server, Controller.</li>
+          <li><input type="checkbox" checked /> Set up database migration with flyway</li>
+          <li><input type="checkbox" checked /> Choose database</li>
+          <li><input type="checkbox" checked /> Add a website dev log</li>
+          <li><input type="checkbox" checked /> Create a sample restapi endpoint</li>
         </ul>
       </div>
     </>
