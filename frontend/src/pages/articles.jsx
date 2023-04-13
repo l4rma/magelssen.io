@@ -5,6 +5,11 @@ export default function Articles() {
             <h1>Articles</h1>
             <ul className="article-list">
                 <li>
+                    <Link to="/Articles/tar">
+                        Tar - Extracting .tar.gz files
+                    </Link>
+                </li>
+                <li>
                     <Link to="/Articles/this-website">
                         Creating this website: Dev log
                     </Link>

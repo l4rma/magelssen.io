@@ -83,13 +83,55 @@ body {
     margin: 0;
 }
 
+.article-list li {
+  padding-bottom: 15px;
+}
+
+code {
+  background-color: #222;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-family: Consolas, Monaco, Lucida Console, Courier New;
+  display: block;
+  white-space: pre-wrap;
+  padding: 10px;
+  color: white;
+}
+
 pre code {
   background-color: #222;
   border: 1px solid #999;
+  border-radius: 5px;
+  font-family: Consolas, Monaco, Lucida Console, Courier New;
   display: block;
-  padding: 10px;
   white-space: pre-wrap;
+  padding: 10px;
 }
+
+.code-comment {
+  font-family: Consolas, Monaco, Lucida Console, Courier New;
+  color: #aaa;
+}
+
+table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+  font-family: Consolas, Monaco, Lucida Console, Courier New;
+}
+
+thead tr th{
+  background-color: #222;
+  font-family: helvetica, sans-serif;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {background-color: #555;}
+tr:nth-child(even) {background-color: #333;}
+
 
 @media only screen and (min-width: 768px) {
     .container {
