@@ -78,6 +78,7 @@ body {
     color: #fabd2f;
 }
 .article-list {
+    text-align: left;
     list-style-type: none;
     padding: 0;
     margin: 0;

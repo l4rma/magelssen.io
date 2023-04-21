@@ -3,7 +3,14 @@ export default function Articles() {
     return(
         <>
             <h1>Articles</h1>
+            <hr />
+            <br />
             <ul className="article-list">
+                <li>
+                    <Link to="/Articles/searching">
+                        Find and Grep - How to search in a Unix system
+                    </Link>
+                </li>
                 <li>
                     <Link to="/Articles/tar">
                         Tar - Extracting .tar.gz files
@@ -11,7 +18,7 @@ export default function Articles() {
                 </li>
                 <li>
                     <Link to="/Articles/this-website">
-                        Creating this website: Dev log
+                        Creating this website - Dev log
                     </Link>
                 </li>
             </ul>

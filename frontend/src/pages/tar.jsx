@@ -1,9 +1,9 @@
 export default function tar() {
   return(
     <>
+      <div className="article-text">
       <h1 className="article-header">Tar - Extracting .tar.gz files</h1>
       <hr />
-      <div className="article-text">
         <p>
           <strong>tl;dr:</strong> Tar files are kinda like zip files. Extract
           tar.gz files with 

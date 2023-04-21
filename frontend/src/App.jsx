@@ -5,6 +5,7 @@ import ErrorView from "./pages/ErrorView";
 import Articles from "./pages/articles";
 import ThisWebsite from "./pages/this-website";
 import Tar from "./pages/tar";
+import Searching from "./pages/searching";
 import { Route, Routes } from "react-router-dom"
 import { BrowserRouter } from "react-router-dom";
 
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/Articles" element={<Articles />} />
                     <Route path="/Articles/this-website" element={<ThisWebsite />} />
                     <Route path="/Articles/tar" element={<Tar />} />
+                    <Route path="/Articles/searching" element={<Searching />} />
                     <Route path="/*" element={<ErrorView error={404}/>} />
                 </Routes>
             </div>
