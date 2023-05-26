@@ -32,6 +32,28 @@ public class HomeController {
         }
     }
 
+    @Get("/startside")
+    public HttpResponse<InputStream> serveStartPage() {
+        InputStream inputStream = getClass().getResourceAsStream("/startpage/index.html");
+
+        if (inputStream != null) {
+            return HttpResponse.ok(inputStream)
+                .contentType(MediaType.TEXT_HTML_TYPE);
+        } else {
+            return HttpResponse.notFound();
+        }
+    }
+
+    @Get("/startsidescript.js")
+    public HttpResponse<InputStream> serveStartPageJs() {
+        InputStream input = getClass().getResourceAsStream("/startpage/script.js");
+        if (input != null) {
+            return HttpResponse.ok(input);
+        } else {
+            return HttpResponse.notFound();
+        }
+    }
+
     @Get("/{path:.*}")
     public HttpResponse<InputStream> serveReactApp(@PathVariable String path) {
             InputStream inputStream = getClass().getResourceAsStream("/static/index.html");
