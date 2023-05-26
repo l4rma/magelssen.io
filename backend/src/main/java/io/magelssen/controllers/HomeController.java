@@ -46,9 +46,21 @@ public class HomeController {
 
     @Get("/startsidescript.js")
     public HttpResponse<InputStream> serveStartPageJs() {
-        InputStream input = getClass().getResourceAsStream("/startpage/script.js");
+        InputStream input = getClass().getResourceAsStream("/startpage/startsidescript.js");
         if (input != null) {
-            return HttpResponse.ok(input);
+            return HttpResponse.ok(input)
+                    .contentType("text/javascript");
+        } else {
+            return HttpResponse.notFound();
+        }
+    }
+
+    @Get("/startsidecss.css")
+    public HttpResponse<InputStream> serveStartPageCss() {
+        InputStream input = getClass().getResourceAsStream("/startpage/startsidecss.css");
+        if (input != null) {
+            return HttpResponse.ok(input)
+                .contentType("text/css");
         } else {
             return HttpResponse.notFound();
         }
