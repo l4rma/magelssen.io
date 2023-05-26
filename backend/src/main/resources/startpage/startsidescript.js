@@ -3,6 +3,7 @@ let searchBtn = document.getElementById("search-button");
 let searchBar = document.getElementById("search-bar");
 let dateField = document.getElementById("date-container");
 let timeField = document.getElementById("time-container");
+let searchEngineDropDown = document.getElementById("search-engine-dropdown");
 
 searchBar.value = "";
 
@@ -16,9 +17,17 @@ async function getWeather() {
 getWeather();
 
 function doSearch() {
-    let url = "https://www.google.com/search?q=";
+    let searchEngine = searchEngineDropDown.options[searchEngineDropDown.selectedIndex].text;
     let search = searchBar.value;
-    //alert(search);
+    let url = "";
+
+    if (searchEngine === "Google") {
+        url = "https://www.google.com/search?q=";
+    } else if (searchEngine === "DuckDuckGo") {
+        url = "https://duckduckgo.com/?q=";
+    } else if (searchEngine === "YouTube") {
+        url = "https://www.youtube.com/results?search_query=";
+    }
     window.location = url+search;
 }
 
