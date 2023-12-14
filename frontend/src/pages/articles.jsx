@@ -16,11 +16,6 @@ export default function Articles() {
                         Tar - Extracting .tar.gz files
                     </Link>
                 </li>
-                <li>
-                    <Link to="/Articles/this-website">
-                        Creating this website - Dev log
-                    </Link>
-                </li>
             </ul>
         </>
     );
