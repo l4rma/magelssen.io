@@ -7,6 +7,11 @@ export default function Articles() {
             <br />
             <ul className="article-list">
                 <li>
+                    <Link to="/Articles/ssh-keygen">
+						Generating SSH-key
+                    </Link>
+                </li>
+                <li>
                     <Link to="/Articles/searching">
                         Find and Grep - How to search in a Unix system
                     </Link>
