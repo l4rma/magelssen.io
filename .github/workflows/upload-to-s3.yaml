@@ -1,0 +1,51 @@
+name: Upload website to S3
+
+# Builds the site and deploys it on every push to main.
+
+on:
+  push:
+    branches:
+    - main
+
+# Lets the job request a GitHub OIDC token, which AWS exchanges for
+# temporary credentials. No AWS keys are stored in GitHub.
+permissions:
+  id-token: write
+  contents: read
+
+# Repository secrets used below:
+#   AWS_ROLE_ARN                IAM role the workflow assumes (contains the account ID)
+#   CLOUDFRONT_DISTRIBUTION_ID  CloudFront distribution in front of the bucket
+env:
+  HUGO_VERSION: 0.140.0
+  AWS_REGION: eu-west-1
+  S3_BUCKET: magelssen.io
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true   # the PaperMod theme
+
+    - name: Install Hugo
+      run: |
+        wget -q -O hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb"
+        sudo dpkg -i hugo.deb
+
+    - name: Build site
+      run: hugo --minify
+
+    - uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Sync public/ to S3
+      run: aws s3 sync ./public/ "s3://${S3_BUCKET}" --delete
+
+    - name: Refresh CloudFront cache
+      env:
+        CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+      run: aws cloudfront create-invalidation --distribution-id "${CLOUDFRONT_DISTRIBUTION_ID}" --paths "/*"

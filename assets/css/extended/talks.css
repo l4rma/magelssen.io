@@ -1,0 +1,32 @@
+.talk-slides {
+  margin-top: var(--gap);
+}
+.talk-thumb {
+  display: block;
+  max-width: 480px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.talk-thumb:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+.talk-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.talk-download {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+.talk-download a {
+  box-shadow: 0 1px 0 var(--primary);
+}
+.talk-subtitle {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--secondary);
+}

@@ -1,0 +1,51 @@
+baseURL: https://magelssen.io/
+languageCode: en-us
+title: magelssen.io
+theme: ["PaperMod"]
+
+params:
+  mainSections: ["blog"]
+
+  homeInfoParams:
+    author: "Lars Magelssen"
+
+  socialIcons:
+    - name: "linkedin"
+      url: "https://linkedin.com/in/lars-magelssen-5a2a75231"
+    - name: "github"
+      url: "http://github.com/l4rma/"
+    - name: "credly"
+      url: "https://www.credly.com/users/lars-magelssen"
+    - name: "email"
+      url: "mailto:contact@magelssen.io"
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 20
+    - identifier: talks
+      name: Talks
+      url: /talks/
+      weight: 22
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 25
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
+
+# Thumbnail:
+# Size: 1200x400
+# Colours:
+#     black: 212121
+#     white: c1c1c1 (/b1b1b1)
+#     yellow: fabd2f
+#     yellow shaddow: 6e5341

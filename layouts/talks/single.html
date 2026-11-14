@@ -1,0 +1,45 @@
+{{- define "main" }}
+{{- $pdf := .Resources.GetMatch (.Params.pdf | default "*.pdf") }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">{{ .Title }}</h1>
+    <div class="post-meta">{{- partial "talk_meta.html" . }}</div>
+  </header>
+
+  {{- with .Content }}
+  <div class="post-content">{{ . }}</div>
+  {{- end }}
+
+  {{- with $pdf }}
+  {{- $thumb := $.Resources.GetMatch "thumbnail.*" }}
+  <div class="talk-slides">
+    {{- with $thumb }}
+    {{- $img := .Resize "960x jpg q85" }}
+    <a class="talk-thumb" href="{{ $pdf.RelPermalink }}" title="Open slides (PDF)">
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
+           alt="First slide of {{ $.Title }}" loading="lazy">
+    </a>
+    {{- end }}
+    <p class="talk-download">
+      <a href="{{ .RelPermalink }}" download>Download slides (PDF, {{ div (len .Content) 1024 }} KB)</a>
+    </p>
+  </div>
+  {{- end }}
+
+  {{- with .Params.video }}
+  <p class="talk-download"><a href="{{ . }}">▶ Watch the recording</a></p>
+  {{- end }}
+
+  <footer class="post-footer">
+    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+    <ul class="post-tags">
+      {{- range ($.GetTerms $tags) }}
+      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </footer>
+</article>
+
+{{- end }}{{/* end main */}}

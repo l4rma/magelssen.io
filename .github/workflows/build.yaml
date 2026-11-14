@@ -1,0 +1,28 @@
+name: Build website
+
+# Checks that the site builds on every pull request, so errors are caught
+# before merging. Nothing is deployed from here.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  HUGO_VERSION: 0.140.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true   # the PaperMod theme
+
+    - name: Install Hugo
+      run: |
+        wget -q -O hugo.deb "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb"
+        sudo dpkg -i hugo.deb
+
+    - name: Build site
+      run: hugo --minify

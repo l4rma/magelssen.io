@@ -1,0 +1,37 @@
+{{- define "main" }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . | markdownify }}</div>
+  {{- end }}
+</header>
+
+{{- with .Content }}
+<div class="post-content">{{ . }}</div>
+{{- end }}
+
+{{- range .RegularPages.ByDate.Reverse }}
+{{- $pdf := .Resources.GetMatch (.Params.pdf | default "*.pdf") }}
+<article class="post-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">{{ .Title }}</h2>
+    {{- /* e.g. "AWS User Group Oslo (12. nov 2026)" */}}
+    <p class="talk-subtitle">
+      {{- with .Params.event }}{{ . }} {{ end }}
+      {{- with .Params.location }}{{ . }} {{ end -}}
+      ({{ .Date | time.Format "2. Jan 2006" | lower }})
+    </p>
+  </header>
+  <div class="entry-content">
+    <p>{{ .Summary | plainify | htmlUnescape }}</p>
+  </div>
+  <footer class="entry-footer">
+    {{- with $pdf }}Slides (PDF){{ end }}
+  </footer>
+  <a class="entry-link" aria-label="talk link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
+
+{{- end }}{{/* end main */}}
