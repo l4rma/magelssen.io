@@ -1,9 +1,14 @@
 name: Build website
 
 # Checks that the site builds on every pull request, so errors are caught
-# before merging. Nothing is deployed from here.
+# before merging. Nothing is deployed from here. Skipped when a pull
+# request only changes files that don't affect the site.
 on:
   pull_request:
+    paths-ignore:
+    - README.md
+    - scripts/**
+    - .gitignore
 
 permissions:
   contents: read
