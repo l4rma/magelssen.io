@@ -15,3 +15,9 @@ My blog written in markdown with Hugo automatically uploaded to S3 where it's ho
 | CDN | Amazon CloudFront | HTTPS, caching and security headers in front of S3 |
 | Certificate | AWS Certificate Manager | TLS certificate for the domain |
 | DNS | Amazon Route 53 | Points `magelssen.io` to CloudFront |
+
+## License
+
+The code in this repository (templates, styles, scripts and workflows) is licensed under the [MIT License](LICENSE).
+
+The content (blog posts, talks, slides and images in `content/` and `assets/`) is © Lars Magelssen, all rights reserved. It may not be reused without permission.
