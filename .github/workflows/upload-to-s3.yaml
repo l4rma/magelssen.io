@@ -1,11 +1,19 @@
 name: Upload website to S3
 
-# Builds the site and deploys it on every push to main.
+# Builds the site and deploys it on every push to main, except when only
+# files that don't affect the site change. Can also be run by hand from
+# the Actions tab ("Run workflow").
 
 on:
   push:
     branches:
     - main
+    paths-ignore:
+    - README.md
+    - scripts/**
+    - .gitignore
+    - .github/workflows/build.yaml
+  workflow_dispatch:
 
 # Lets the job request a GitHub OIDC token, which AWS exchanges for
 # temporary credentials. No AWS keys are stored in GitHub.
